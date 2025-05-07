@@ -1,331 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tts.css">
     <title>Text to Speech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #4285f4;
-            --secondary-color: #34a853;
-            --error-color: #ea4335;
-            --surface-color: #ffffff;
-            --text-primary: #202124;
-            --text-secondary: #5f6368;
-            --border-color: #dadce0;
-            --accent-color: #fbbc05;
-            --surface-hover: #f5f5f5;
-        }
 
-        body.dark-theme {
-            --primary-color: #8ab4f8;
-            --secondary-color: #81c995;
-            --error-color: #f28b82;
-            --surface-color: #202124;
-            --text-primary: #e8eaed;
-            --text-secondary: #9aa0a6;
-            --border-color: #3c4043;
-            --accent-color: #fdd663;
-            --surface-hover: #303134;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        body {
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            padding: 0;
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            padding: 20px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .tts-input-container {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            min-height: 120px;
-            margin-bottom: 15px;
-            resize: vertical;
-            font-size: 1rem;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
-        }
-
-        .controls-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .control-group {
-            flex: 1;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background-color: var(--surface-color);
-            color: var(--text-primary);
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 16px;
-            padding-right: 30px;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            -webkit-appearance: none;
-            height: 6px;
-            background: var(--border-color);
-            border-radius: 3px;
-            margin-top: 10px;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-
-        .range-value {
-            display: inline-block;
-            min-width: 40px;
-            text-align: right;
-            color: var(--text-primary);
-        }
-
-        .button-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        button {
-            flex: 1;
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        button:active:not(:disabled) {
-            transform: scale(0.98);
-        }
-
-        button i {
-            font-size: 1rem;
-        }
-
-        .speak-btn {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .pause-btn {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .stop-btn {
-            background-color: var(--error-color);
-            color: white;
-        }
-
-        .status {
-            margin-top: 5px;
-            margin-bottom: 15px;
-            text-align: center;
-            min-height: 24px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            padding: 5px;
-            border-radius: 4px;
-            background-color: rgba(0,0,0,0.03);
-        }
-
-        .quick-phrases {
-            margin-top: 10px;
-            padding: 15px;
-            background-color: rgba(0,0,0,0.05);
-            border-radius: 8px;
-        }
-
-        .quick-phrases h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .phrase-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .phrase-btn {
-            padding: 8px 12px;
-            background-color: var(--surface-hover);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            font-weight: normal;
-            transition: background-color 0.2s;
-        }
-
-        .phrase-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .keyboard-shortcuts {
-            margin-top: 15px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .keyboard-shortcuts kbd {
-            background-color: var(--surface-hover);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 2px 5px;
-            display: inline-block;
-            margin: 0 3px;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body:not(.light-theme) {
-                --primary-color: #8ab4f8;
-                --secondary-color: #81c995;
-                --error-color: #f28b82;
-                --surface-color: #202124;
-                --text-primary: #e8eaed;
-                --text-secondary: #9aa0a6;
-                --border-color: #3c4043;
-                --accent-color: #fdd663;
-                --surface-hover: #303134;
-            }
-        }
-        
-        /* Extra indicator for speaking status */
-        .speaking-indicator {
-            display: none;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7);
-            }
-            
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 10px rgba(66, 133, 244, 0);
-            }
-            
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
-            }
-        }
-        
-        .speaking .speaking-indicator {
-            display: block;
-        }
-    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="speaking-indicator"></div>
         <h2>Text to Speech</h2>
-        
+
         <div class="tts-input-container">
             <label for="ttsInput">Enter text to speak:</label>
             <textarea id="ttsInput" placeholder="Type or paste text here..."></textarea>
-            
+
             <div class="controls-row">
                 <div class="control-group">
                     <label for="ttsVoice">Voice:</label>
@@ -338,7 +31,7 @@
                     <input type="range" id="ttsRate" min="0.5" max="2" value="1" step="0.1">
                 </div>
             </div>
-            
+
             <div class="controls-row">
                 <div class="control-group">
                     <label for="ttsPitch">Pitch: <span id="ttsPitchValue" class="range-value">1.0</span></label>
@@ -350,7 +43,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="button-container">
             <button id="ttsSpeakBtn" class="speak-btn">
                 <i class="fas fa-play"></i> Speak
@@ -362,11 +55,11 @@
                 <i class="fas fa-stop"></i> Stop
             </button>
         </div>
-        
+
         <div id="ttsStatus" class="status">
             Ready to speak
         </div>
-        
+
         <div class="quick-phrases">
             <h3>Quick Phrases</h3>
             <div class="phrase-buttons">
@@ -376,272 +69,14 @@
                 <button class="phrase-btn">Have a great day!</button>
             </div>
         </div>
-        
+
         <div class="keyboard-shortcuts">
             Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to speak
         </div>
     </div>
 
-    <script>
-        // DOM Elements
-        const ttsInput = document.getElementById('ttsInput');
-        const ttsVoiceSelect = document.getElementById('ttsVoice');
-        const ttsRate = document.getElementById('ttsRate');
-        const ttsPitch = document.getElementById('ttsPitch');
-        const ttsVolume = document.getElementById('ttsVolume');
-        const ttsSpeakBtn = document.getElementById('ttsSpeakBtn');
-        const ttsPauseBtn = document.getElementById('ttsPauseBtn');
-        const ttsStopBtn = document.getElementById('ttsStopBtn');
-        const ttsStatus = document.getElementById('ttsStatus');
-        const ttsRateValue = document.getElementById('ttsRateValue');
-        const ttsPitchValue = document.getElementById('ttsPitchValue');
-        const ttsVolumeValue = document.getElementById('ttsVolumeValue');
-        const ttsPhrases = document.querySelectorAll('.phrase-btn');
-        
-        // Check if speech synthesis is supported
-        if (typeof speechSynthesis === 'undefined') {
-            ttsStatus.textContent = 'Speech synthesis not supported in this browser';
-            ttsStatus.style.color = 'var(--error-color)';
-            
-            // Disable all controls
-            [ttsInput, ttsVoiceSelect, ttsRate, ttsPitch, ttsVolume, 
-             ttsSpeakBtn, ttsPauseBtn, ttsStopBtn].forEach(el => {
-                el.disabled = true;
-             });
-        }
-        
-        // Load available voices
-        function loadVoices() {
-            if (typeof speechSynthesis === 'undefined') return;
-            
-            // Clear existing options
-            ttsVoiceSelect.innerHTML = '<option value="">Default Voice</option>';
-            
-            const voices = speechSynthesis.getVoices();
-            if (voices && voices.length > 0) {
-                voices.forEach((voice, i) => {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    ttsVoiceSelect.appendChild(option);
-                });
-                
-                // Log for debugging
-                console.log(`Loaded ${voices.length} voices`);
-            } else {
-                console.log('No voices available yet');
-                // Try again after a delay if no voices are loaded
-                setTimeout(loadVoices, 500);
-            }
-        }
-        
-        // Voice list might load asynchronously
-        if (typeof speechSynthesis !== 'undefined') {
-            if (speechSynthesis.onvoiceschanged !== undefined) {
-                speechSynthesis.onvoiceschanged = loadVoices;
-            }
-            
-            // Initial load attempt
-            loadVoices();
-            
-            // Sometimes onvoiceschanged doesn't fire in all browsers, so we'll try again after a delay
-            setTimeout(loadVoices, 1000);
-        }
-        
-        // Update slider value displays
-        ttsRate.addEventListener('input', () => {
-            ttsRateValue.textContent = parseFloat(ttsRate.value).toFixed(1);
-        });
-        
-        ttsPitch.addEventListener('input', () => {
-            ttsPitchValue.textContent = parseFloat(ttsPitch.value).toFixed(1);
-        });
-        
-        ttsVolume.addEventListener('input', () => {
-            ttsVolumeValue.textContent = parseFloat(ttsVolume.value).toFixed(1);
-        });
-        
-        // Speech function
-        function speak() {
-            if (typeof speechSynthesis === 'undefined') return;
-            
-            const text = ttsInput.value.trim();
-            if (!text) {
-                ttsStatus.textContent = 'Please enter text to speak';
-                ttsStatus.style.color = 'var(--error-color)';
-                return;
-            }
-            
-            // Cancel any ongoing speech
-            speechSynthesis.cancel();
-            
-            const utterance = new SpeechSynthesisUtterance(text);
-            
-            // Apply voice settings
-            if (ttsVoiceSelect.value) {
-                const voiceIndex = parseInt(ttsVoiceSelect.value);
-                const voices = speechSynthesis.getVoices();
-                if (voices && voices[voiceIndex]) {
-                    utterance.voice = voices[voiceIndex];
-                    console.log(`Using voice: ${voices[voiceIndex].name}`);
-                }
-            }
-            
-            utterance.rate = parseFloat(ttsRate.value);
-            utterance.pitch = parseFloat(ttsPitch.value);
-            utterance.volume = parseFloat(ttsVolume.value);
-            
-            // Event handlers
-            utterance.onstart = () => {
-                ttsStatus.textContent = 'Speaking...';
-                ttsStatus.style.color = 'var(--primary-color)';
-                ttsSpeakBtn.disabled = true;
-                document.body.classList.add('speaking');
-                
-                // Log for debugging
-                console.log('Speech started');
-            };
-            
-            utterance.onend = () => {
-                ttsStatus.textContent = 'Finished speaking';
-                ttsStatus.style.color = 'var(--text-secondary)';
-                ttsSpeakBtn.disabled = false;
-                document.body.classList.remove('speaking');
-                ttsPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
-                
-                // Log for debugging
-                console.log('Speech ended');
-            };
-            
-            utterance.onerror = (e) => {
-                ttsStatus.textContent = `Error: ${e.error}`;
-                ttsStatus.style.color = 'var(--error-color)';
-                ttsSpeakBtn.disabled = false;
-                document.body.classList.remove('speaking');
-                
-                // Log for debugging
-                console.error('Speech error:', e);
-            };
-            
-            // Chrome bug fix: Need to speak small text snippet first
-            // to ensure proper functioning after a page reload
-            if (!window.speechSynthesisInitialized) {
-                const initUtterance = new SpeechSynthesisUtterance('');
-                speechSynthesis.speak(initUtterance);
-                window.speechSynthesisInitialized = true;
-                console.log('Initialized speech synthesis');
-            }
-            
-            // Speak
-            try {
-                speechSynthesis.speak(utterance);
-                console.log('Speech started with text:', text.substring(0, 50) + (text.length > 50 ? '...' : ''));
-            } catch (error) {
-                console.error('Error speaking:', error);
-                ttsStatus.textContent = `Error: ${error.message || 'Unknown error'}`;
-                ttsStatus.style.color = 'var(--error-color)';
-            }
-        }
-        
-        // Handle Chrome bug where speech can stop
-        // Chrome has a bug where long text stops after ~15 seconds
-        setInterval(() => {
-            if (speechSynthesis.speaking && !speechSynthesis.paused) {
-                speechSynthesis.pause();
-                speechSynthesis.resume();
-                console.log('Applied Chrome pause/resume fix');
-            }
-        }, 14000);
-        
-        // Button event handlers
-        ttsSpeakBtn.addEventListener('click', speak);
-        
-        ttsPauseBtn.addEventListener('click', () => {
-            if (typeof speechSynthesis === 'undefined') return;
-            
-            if (speechSynthesis.speaking) {
-                try {
-                    if (speechSynthesis.paused) {
-                        speechSynthesis.resume();
-                        ttsStatus.textContent = 'Speaking...';
-                        ttsStatus.style.color = 'var(--primary-color)';
-                        ttsPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
-                        document.body.classList.add('speaking');
-                        console.log('Speech resumed');
-                    } else {
-                        speechSynthesis.pause();
-                        ttsStatus.textContent = 'Paused';
-                        ttsStatus.style.color = 'var(--text-secondary)';
-                        ttsPauseBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
-                        document.body.classList.remove('speaking');
-                        console.log('Speech paused');
-                    }
-                } catch (error) {
-                    console.error('Error toggling pause/resume:', error);
-                }
-            }
-        });
-        
-        ttsStopBtn.addEventListener('click', () => {
-            if (typeof speechSynthesis === 'undefined') return;
-            
-            try {
-                speechSynthesis.cancel();
-                ttsStatus.textContent = 'Stopped';
-                ttsStatus.style.color = 'var(--text-secondary)';
-                ttsSpeakBtn.disabled = false;
-                ttsPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
-                document.body.classList.remove('speaking');
-                console.log('Speech stopped');
-            } catch (error) {
-                console.error('Error stopping speech:', error);
-            }
-        });
-        
-        // Quick phrases
-        ttsPhrases.forEach(phrase => {
-            phrase.addEventListener('click', () => {
-                ttsInput.value = phrase.textContent;
-                speak();
-            });
-        });
-        
-        // Enter key to speak
-        ttsInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && e.ctrlKey) {
-                e.preventDefault();
-                speak();
-            }
-        });
-        
-        // Adapt to parent theme
-        function detectTheme() {
-            try {
-                // Try to get parent's theme
-                const parentIsDark = window.parent.document.body.classList.contains('dark-theme');
-                if (parentIsDark) {
-                    document.body.classList.add('dark-theme');
-                } else {
-                    document.body.classList.remove('dark-theme');
-                }
-            } catch (e) {
-                // If we can't access parent (e.g., due to iframe security),
-                // use system preference
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                    document.body.classList.add('dark-theme');
-                }
-            }
-        }
-        
-        // Initial theme detection
-        detectTheme();
-        
-        // Optional: Check theme periodically (for dynamic theme changes)
-        setInterval(detectTheme, 1000);
-        
-        // Add demo text to make it easier to test
-        ttsInput.value = "Hello! This is the Text to Speech tool. You can use this to convert any text to speech. Try changing the voice, rate, pitch, and volume settings.";
-    </script>
+    <script src="../js/tts.js"></script>
+
 </body>
-</html> 
+
+</html>
