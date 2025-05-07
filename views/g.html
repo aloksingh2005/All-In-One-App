@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/g.css">
+    <title>G-Meter App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gmeter-app">
+        <canvas class="gmeter-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="gmeter-controls">
+            <div>
+                <label for="smooth">Smooth Readings</label>
+                <input type="checkbox" id="smooth" checked>
+            </div>
+            <div>
+                <label for="scale">Scale (1-10 g)</label>
+                <input type="range" id="scale" min="1" max="10" value="5">
+            </div>
+        </div>
+        <div class="gmeter-display" id="display">
+            <h3>G-Meter</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="gmeter-buttons">
+            <button class="gmeter-btn special" onclick="gmeterFunctions.reset()">Reset</button>
+            <button class="gmeter-btn" onclick="gmeterFunctions.toggleTracking()">Start</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/g.js"></script>
+</body>
+</html>

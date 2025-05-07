@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reminder.css">
+    <title>Reminders App - Futuristic Edition</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="reminders-app">
+        <div class="reminders-input">
+            <div>
+                <label for="title">Reminder Title</label>
+                <input type="text" id="title" placeholder="Enter reminder title">
+            </div>
+            <div>
+                <label for="date">Due Date</label>
+                <input type="date" id="date">
+            </div>
+            <div>
+                <label for="time">Due Time</label>
+                <input type="time" id="time">
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <select id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div>
+                <label for="notes">Notes (Optional)</label>
+                <textarea id="notes" placeholder="Enter notes"></textarea>
+            </div>
+        </div>
+        <div class="filter-section">
+            <label for="filter">Filter Reminders</label>
+            <select id="filter">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="done">Done</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+        </div>
+        <div class="reminders-display" id="display">
+            <h3>No Upcoming Reminders</h3>
+            <p>Start by adding a reminder</p>
+        </div>
+        <div class="reminders-buttons">
+            <button class="reminders-btn special" onclick="remindersFunctions.clear()">Clear All</button>
+            <button class="reminders-btn" onclick="remindersFunctions.addReminder()">Add Reminder</button>
+        </div>
+        <div class="reminders-section" id="reminders">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reminder</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/reminder.js"></script>
+
+</body>
+</html> 

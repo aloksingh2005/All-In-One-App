@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/unit-converter.css">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="converter-app">
+        <div class="converter-input">
+            <input type="text" id="inputValue" placeholder="Enter value" autocomplete="off">
+            <div class="converter-select">
+                <select id="fromUnit">
+                    <optgroup label="Length">
+                        <option value="m">Meter (m)</option>
+                        <option value="km">Kilometer (km)</option>
+                        <option value="cm">Centimeter (cm)</option>
+                        <option value="mm">Millimeter (mm)</option>
+                        <option value="in">Inch (in)</option>
+                        <option value="ft">Foot (ft)</option>
+                        <option value="yd">Yard (yd)</option>
+                    </optgroup>
+                    <optgroup label="Weight">
+                        <option value="kg">Kilogram (kg)</option>
+                        <option value="g">Gram (g)</option>
+                        <option value="lb">Pound (lb)</option>
+                        <option value="oz">Ounce (oz)</option>
+                    </optgroup>
+                    <optgroup label="Temperature">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </optgroup>
+                    <optgroup label="Volume">
+                        <option value="L">Liter (L)</option>
+                        <option value="mL">Milliliter (mL)</option>
+                        <option value="gal">Gallon (gal)</option>
+                        <option value="fl_oz">Fluid Ounce (fl oz)</option>
+                    </optgroup>
+                </select>
+                <select id="toUnit">
+                    <optgroup label="Length">
+                        <option value="m">Meter (m)</option>
+                        <option value="km">Kilometer (km)</option>
+                        <option value="cm">Centimeter (cm)</option>
+                        <option value="mm">Millimeter (mm)</option>
+                        <option value="in">Inch (in)</option>
+                        <option value="ft">Foot (ft)</option>
+                        <option value="yd">Yard (yd)</option>
+                    </optgroup>
+                    <optgroup label="Weight">
+                        <option value="kg">Kilogram (kg)</option>
+                        <option value="g">Gram (g)</option>
+                        <option value="lb">Pound (lb)</option>
+                        <option value="oz">Ounce (oz)</option>
+                    </optgroup>
+                    <optgroup label="Temperature">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </optgroup>
+                    <optgroup label="Volume">
+                        <option value="L">Liter (L)</option>
+                        <option value="mL">Milliliter (mL)</option>
+                        <option value="gal">Gallon (gal)</option>
+                        <option value="fl_oz">Fluid Ounce (fl oz)</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="converter-result" id="result">0</div>
+        <div class="converter-buttons">
+            <button class="converter-btn special" onclick="converterFunctions.clear()">Clear</button>
+            <button class="converter-btn convert" onclick="converterFunctions.convert()">Convert</button>
+        </div>
+        <div class="history-section" id="history"></div>
+    </div>
+
+    <script src="/js/unit-converter.js"></script>
+
+
+</body>
+
+
+</html>

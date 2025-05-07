@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/microphone.css">
+    <title>Microphone App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mic-app">
+        <canvas class="mic-canvas" id="canvas" width="400" height="100"></canvas>
+        <div class="mic-display" id="display">
+            <h3>Microphone</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="mic-buttons">
+            <button class="mic-btn special" onclick="micFunctions.toggleRecording()">Start</button>
+            <button class="mic-btn" onclick="micFunctions.save()">Save</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/microphone.js"></script>
+
+</body>
+</html>

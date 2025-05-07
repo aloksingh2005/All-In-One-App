@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ran-num-gen.css">
+    <title>Random Number Generator</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="generator-app">
+        <div class="generator-input">
+            <input type="number" id="minValue" placeholder="Min" value="1">
+            <input type="number" id="maxValue" placeholder="Max" value="100">
+            <input type="number" id="count" placeholder="Count" min="1" value="1">
+        </div>
+        <div class="generator-options">
+            <label><input type="checkbox" id="noDuplicates"> No duplicates</label>
+        </div>
+        <div class="generator-display" id="display">0</div>
+        <div class="generator-buttons">
+            <button class="generator-btn special" onclick="generatorFunctions.clear()">Clear</button>
+            <button class="generator-btn action" onclick="generatorFunctions.generate()">Generate</button>
+            <button class="generator-btn special" onclick="generatorFunctions.savePreset()">Save Preset</button>
+        </div>
+        <div class="history-section" id="history">
+            <table></table>
+        </div>
+        <div class="presets-section" id="presets">
+            <table></table>
+        </div>
+    </div>
+
+    <script src="/js/ran-num-gen.js"></script>
+
+</body>
+</html>

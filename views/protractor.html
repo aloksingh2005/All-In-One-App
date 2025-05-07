@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/protractor.css">
+    <title>Protractor App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="protractor-app">
+        <canvas class="protractor-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="protractor-controls">
+            <div>
+                <label for="smooth">Smooth Readings</label>
+                <input type="checkbox" id="smooth" checked>
+            </div>
+            <div>
+                <label for="lock">Lock Angles</label>
+                <input type="checkbox" id="lock">
+            </div>
+        </div>
+        <div class="protractor-display" id="display">
+            <h3>Protractor</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="protractor-buttons">
+            <button class="protractor-btn special" onclick="protractorFunctions.reset()">Reset</button>
+            <button class="protractor-btn" onclick="protractorFunctions.toggleTracking()">Start</button>
+            <button class="protractor-btn" onclick="protractorFunctions.copy()">Copy</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/protractor.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/compass.css">
+    <title>Compass App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="compass-app">
+        <canvas class="compass-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="compass-controls">
+            <div>
+                <label for="calibrate">Smooth Calibration</label>
+                <input type="checkbox" id="calibrate" checked>
+            </div>
+        </div>
+        <div class="compass-display" id="display">
+            <h3>Compass</h3>
+            <p>Heading: 0°</p>
+        </div>
+        <div class="compass-buttons">
+            <button class="compass-btn special" onclick="compassFunctions.reset()">Reset</button>
+            <button class="compass-btn" onclick="compassFunctions.toggleCalibration()">Toggle Calibration</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/compass.js"></script>
+
+</body>
+</html>

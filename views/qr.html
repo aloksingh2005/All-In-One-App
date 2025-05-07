@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/qr.css">
+    <title>QR Generator App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="qr-app">
+        <canvas class="qr-canvas" id="canvas"></canvas>
+        <div class="qr-controls">
+            <div>
+                <label for="text">Text/URL</label>
+                <input type="text" id="text" placeholder="Enter text or URL">
+            </div>
+            <div>
+                <label for="size">QR Size (px)</label>
+                <input type="range" id="size" min="100" max="300" value="200">
+            </div>
+            <div>
+                <label for="errorCorrection">Error Correction</label>
+                <select id="errorCorrection">
+                    <option value="L">Low</option>
+                    <option value="M" selected>Medium</option>
+                    <option value="Q">Quartile</option>
+                    <option value="H">High</option>
+                </select>
+            </div>
+        </div>
+        <div class="qr-display" id="display">
+            <h3>QR Generator</h3>
+            <p>Enter text to generate QR code</p>
+        </div>
+        <div class="qr-buttons">
+            <button class="qr-btn special" onclick="qrFunctions.clear()">Clear</button>
+            <button class="qr-btn" onclick="qrFunctions.generate()">Generate</button>
+            <button class="qr-btn" onclick="qrFunctions.download()">Download</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/qr.js"></script>
+
+</body>
+</html>

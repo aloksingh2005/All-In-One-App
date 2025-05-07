@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/paint.css">
+    <title>Paint App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="paint-app">
+        <canvas class="paint-canvas" id="canvas" width="400" height="300"></canvas>
+        <div class="paint-controls">
+            <select id="tool">
+                <option value="brush">Brush</option>
+                <option value="eraser">Eraser</option>
+                <option value="line">Line</option>
+                <option value="rectangle">Rectangle</option>
+                <option value="circle">Circle</option>
+            </select>
+            <input type="number" id="brushSize" min="1" max="50" value="5">
+            <input type="color" id="color" value="#000000">
+            <select id="fill">
+                <option value="stroke">Stroke</option>
+                <option value="fill">Fill</option>
+            </select>
+        </div>
+        <div class="paint-display" id="display">
+            <h3>Paint</h3>
+            <p>Select a tool to start drawing</p>
+        </div>
+        <div class="paint-buttons">
+            <button class="paint-btn special" onclick="paintFunctions.clear()">Clear</button>
+            <button class="paint-btn" onclick="paintFunctions.undo()">Undo</button>
+            <button class="paint-btn" onclick="paintFunctions.save()">Save</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/paint.js"></script>
+
+</body>
+</html>

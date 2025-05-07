@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/location.css">
+    <title>Location App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="location-app">
+        <div id="map"></div>
+        <div class="location-controls">
+            <div>
+                <label for="highAccuracy">High Accuracy</label>
+                <input type="checkbox" id="highAccuracy" checked>
+            </div>
+            <div>
+                <label for="zoom">Map Zoom (4-18)</label>
+                <input type="range" id="zoom" min="4" max="18" value="15">
+            </div>
+        </div>
+        <div class="location-display" id="display">
+            <h3>Location</h3>
+            <p>Click Get Location to start</p>
+        </div>
+        <div class="location-buttons">
+            <button class="location-btn special" onclick="locationFunctions.clear()">Clear</button>
+            <button class="location-btn" onclick="locationFunctions.getLocation()">Get Location</button>
+            <button class="location-btn" onclick="locationFunctions.copy()">Copy</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/location.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/morse.css">
+    <title>Morse Code App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="morse-app">
+        <div class="morse-controls">
+            <div>
+                <label for="mode">Mode</label>
+                <select id="mode">
+                    <option value="textToMorse">Text to Morse</option>
+                    <option value="morseToText">Morse to Text</option>
+                </select>
+            </div>
+            <div>
+                <label for="input">Input</label>
+                <input type="text" id="input" placeholder="Enter text or Morse code">
+            </div>
+        </div>
+        <div class="morse-output" id="output">...</div>
+        <div class="morse-display" id="display">
+            <h3>Morse Code</h3>
+            <p>Enter text to convert</p>
+        </div>
+        <div class="morse-buttons">
+            <button class="morse-btn special" onclick="morseFunctions.clear()">Clear</button>
+            <button class="morse-btn" onclick="morseFunctions.convert()">Convert</button>
+            <button class="morse-btn" onclick="morseFunctions.play()">Play</button>
+            <button class="morse-btn" onclick="morseFunctions.copy()">Copy</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/morse.js"></script>
+
+</body>
+</html>

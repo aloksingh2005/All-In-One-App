@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Workspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="workspace">
+        <div class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo">W</div>
+                <div class="user-profile">
+                    <img src="assets\icons\xiao-yan.jpg" alt="User">
+                </div>
+            </div>
+            <div class="workspace-nav">
+                <button class="nav-btn active" data-category="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Apps</span>
+                </button>
+                <button class="nav-btn" data-category="utility">
+                    <i class="fas fa-calculator"></i>
+                    <span>Utilities</span>
+                </button>
+                <button class="nav-btn" data-category="media">
+                    <i class="fas fa-photo-video"></i>
+                    <span>Media</span>
+                </button>
+                <button class="nav-btn" data-category="communication">
+                    <i class="fas fa-comments"></i>
+                    <span>Communication</span>
+                </button>
+                <button class="nav-btn" data-category="sensors">
+                    <i class="fas fa-compass"></i>
+                    <span>Sensors</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="main-area">
+            <header class="top-bar">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="search" id="appSearch" placeholder="Search apps or press / to focus">
+                </div>
+                <div class="top-actions">
+                    <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                    <div class="time">10:45 AM</div>
+                </div>
+            </header>
+            
+            <main class="app-grid-container">
+                <h2 class="section-title">All Applications</h2>
+                <div class="app-grid" id="appGrid">
+                    <!-- Apps will be dynamically inserted here -->
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <div class="app-modal-container" id="modalContainer">
+        <!-- App modals will be dynamically inserted here -->
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+
+</html>

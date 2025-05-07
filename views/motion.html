@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/motion.css">
+    <title>Motion Sensor App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="motion-app">
+        <canvas class="motion-canvas" id="canvas" width="300" height="200"></canvas>
+        <div class="motion-controls">
+            <div>
+                <label for="smooth">Smooth Readings</label>
+                <input type="checkbox" id="smooth" checked>
+            </div>
+            <div>
+                <label for="scale">Scale (1-10 m/s²)</label>
+                <input type="range" id="scale" min="1" max="10" value="5">
+            </div>
+        </div>
+        <div class="motion-display" id="display">
+            <h3>Motion Sensor</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="motion-buttons">
+            <button class="motion-btn special" onclick="motionFunctions.reset()">Reset</button>
+            <button class="motion-btn" onclick="motionFunctions.toggleTracking()">Start</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/motion.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/billing.css">
+
+    <title>Billing App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="billing-app">
+        <div class="billing-input">
+            <div>
+                <label for="itemName">Item Name</label>
+                <input type="text" id="itemName" placeholder="Enter item name">
+            </div>
+            <div>
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" placeholder="Enter quantity" min="0.001" step="0.001" value="1">
+            </div>
+            <div>
+                <label for="unit">Unit</label>
+                <select id="unit">
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="mg">mg</option>
+                    <option value="L">L</option>
+                    <option value="mL">mL</option>
+                    <option value="units">units</option>
+                </select>
+            </div>
+            <div>
+                <label for="unitPrice">Unit Price ($)</label>
+                <input type="number" id="unitPrice" placeholder="Enter price per unit" min="0" step="0.01" value="0">
+            </div>
+        </div>
+        <div class="billing-options">
+            <div>
+                <label for="discount">Discount</label>
+                <input type="number" id="discount" placeholder="0" min="0" step="0.01" value="0">
+                <select id="discountType">
+                    <option value="percent">%</option>
+                    <option value="fixed">$</option>
+                </select>
+            </div>
+            <div>
+                <label for="tax">Tax</label>
+                <input type="number" id="tax" placeholder="0" min="0" step="0.01" value="0">
+                <select id="taxType">
+                    <option value="percent">%</option>
+                    <option value="fixed">$</option>
+                </select>
+            </div>
+        </div>
+        <div class="billing-display" id="display">
+            <div>Subtotal: $0.00</div>
+            <div>Discount: $0.00</div>
+            <div>Tax: $0.00</div>
+            <div>Total: $0.00</div>
+        </div>
+        <div class="billing-buttons">
+            <button class="billing-btn special" onclick="billingFunctions.clear()">Clear</button>
+            <button class="billing-btn action" onclick="billingFunctions.addItem()">Add Item</button>
+            <button class="billing-btn special" onclick="billingFunctions.saveBill()">Save Bill</button>
+        </div>
+        <div class="items-section" id="items">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="presets-section" id="presets">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/billing.js"></script>
+
+
+</body>
+
+</html>

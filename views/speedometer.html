@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/speedometer.css">
+    <title>Speedometer App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="speedometer-app">
+        <canvas class="speedometer-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="speedometer-controls">
+            <div>
+                <label for="unit">Unit</label>
+                <select id="unit">
+                    <option value="kmh">km/h</option>
+                    <option value="mph">mph</option>
+                </select>
+            </div>
+            <div>
+                <label for="smooth">Smooth Readings</label>
+                <input type="checkbox" id="smooth" checked>
+            </div>
+        </div>
+        <div class="speedometer-display" id="display">
+            <h3>Speedometer</h3>
+            <p>Speed: 0 km/h</p>
+        </div>
+        <div class="speedometer-buttons">
+            <button class="speedometer-btn special" onclick="speedometerFunctions.reset()">Reset</button>
+            <button class="speedometer-btn" onclick="speedometerFunctions.toggleTracking()">Start</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/speedometer.js"></script>
+
+</body>
+</html>

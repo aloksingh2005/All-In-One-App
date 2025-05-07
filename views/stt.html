@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/stt.css">
+    <title>Speech to Text App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stt-app">
+        <div class="stt-controls">
+            <div>
+                <label for="lang">Language</label>
+                <select id="lang">
+                    <option value="en-US">English (US)</option>
+                    <option value="en-GB">English (UK)</option>
+                    <option value="hi-IN">Hindi (India)</option>
+                    <option value="es-ES">Spanish (Spain)</option>
+                </select>
+            </div>
+            <div>
+                <label for="interim">Show Interim Results</label>
+                <input type="checkbox" id="interim" checked>
+            </div>
+        </div>
+        <textarea class="stt-output" id="output" placeholder="Transcribed text will appear here"></textarea>
+        <div class="stt-display" id="display">
+            <h3>Speech to Text</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="stt-buttons">
+            <button class="stt-btn special" onclick="sttFunctions.clear()">Clear</button>
+            <button class="stt-btn" onclick="sttFunctions.toggleRecording()">Start</button>
+            <button class="stt-btn" onclick="sttFunctions.copy()">Copy</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/stt.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/altitude.css">
+    <title>Altitude App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="altitude-app">
+        <canvas class="altitude-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="altitude-controls">
+            <div>
+                <label for="unit">Unit</label>
+                <select id="unit">
+                    <option value="meters">Meters</option>
+                    <option value="feet">Feet</option>
+                </select>
+            </div>
+            <div>
+                <label for="highAccuracy">High Accuracy</label>
+                <input type="checkbox" id="highAccuracy" checked>
+            </div>
+        </div>
+        <div class="altitude-display" id="display">
+            <h3>Altitude</h3>
+            <p>Altitude: 0 meters</p>
+        </div>
+        <div class="altitude-buttons">
+            <button class="altitude-btn special" onclick="altitudeFunctions.reset()">Reset</button>
+            <button class="altitude-btn" onclick="altitudeFunctions.getAltitude()">Get Altitude</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/altitude.js"></script>
+</body>
+</html>

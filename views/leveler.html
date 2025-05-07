@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/leveler.css">
+    <title>Leveler App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="leveler-app">
+        <canvas class="leveler-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="leveler-controls">
+            <div>
+                <label for="calibrate">Smooth Calibration</label>
+                <input type="checkbox" id="calibrate" checked>
+            </div>
+        </div>
+        <div class="leveler-display" id="display">
+            <h3>Leveler</h3>
+            <p>Pitch: 0°</p>
+            <p>Roll: 0°</p>
+        </div>
+        <div class="leveler-buttons">
+            <button class="leveler-btn special" onclick="levelerFunctions.reset()">Reset</button>
+            <button class="leveler-btn" onclick="levelerFunctions.toggleCalibration()">Toggle Calibration</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/leveler.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/css/calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="calculator-app">
+        <div class="calculator-display">
+            <div class="previous-operand" id="prevOperand"></div>
+            <div class="current-operand" id="currentOperand">0</div>
+        </div>
+        <div class="calculator-buttons">
+            <button class="calculator-btn special" onclick="calculatorFunctions.clearAll()">AC</button>
+            <button class="calculator-btn special" onclick="calculatorFunctions.deleteLast()">⌫</button>
+            <button class="calculator-btn special" onclick="calculatorFunctions.percentage()">%</button>
+            <button class="calculator-btn operator" onclick="calculatorFunctions.operation('/')">÷</button>
+            
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('7')">7</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('8')">8</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('9')">9</button>
+            <button class="calculator-btn operator" onclick="calculatorFunctions.operation('*')">×</button>
+            
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('4')">4</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('5')">5</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('6')">6</button>
+            <button class="calculator-btn operator" onclick="calculatorFunctions.operation('-')">−</button>
+            
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('1')">1</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('2')">2</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('3')">3</button>
+            <button class="calculator-btn operator" onclick="calculatorFunctions.operation('+')">+</button>
+            
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('0')">0</button>
+            <button class="calculator-btn number" onclick="calculatorFunctions.appendNumber('.')">.</button>
+            <button class="calculator-btn special" onclick="calculatorFunctions.squareRoot()">√</button>
+            <button class="calculator-btn equals" onclick="calculatorFunctions.calculate()">=</button>
+        </div>
+        <div class="history-section" id="history"></div>
+    </div>
+
+    <script src="/js/calculator.js"></script>
+
+</body>
+</html>

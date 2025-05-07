@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/device-info.css">
+    <title>Device Info App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="device-info-app">
+        <div class="device-info-display" id="display">
+            <h3>Device Info</h3>
+            <p>Click Refresh to load</p>
+        </div>
+        <div class="device-info-buttons">
+            <button class="device-info-btn special" onclick="deviceInfoFunctions.refresh()">Refresh</button>
+            <button class="device-info-btn" onclick="deviceInfoFunctions.copy()">Copy</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/device-info.js"></script>
+</body>
+</html>

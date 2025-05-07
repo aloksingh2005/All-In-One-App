@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/music.css">
+    <title>Music Player App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="music-app">
+        <div class="music-display" id="display">
+            <h3>No Song Playing</h3>
+            <p>Upload a song to start</p>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn special" onclick="musicFunctions.previous()">Previous</button>
+            <button class="music-btn" onclick="musicFunctions.togglePlay()">Play</button>
+            <button class="music-btn special" onclick="musicFunctions.next()">Next</button>
+        </div>
+        <div class="music-progress">
+            <input type="range" id="progress" min="0" max="100" value="0">
+        </div>
+        <div class="music-volume">
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+        </div>
+        <div class="music-upload">
+            <label for="upload"><i class="fas fa-upload"></i> Upload Song</label>
+            <input type="file" id="upload" accept="audio/*" multiple>
+        </div>
+        <div class="playlist-section" id="playlist">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Song</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/music.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sound-gen.css">
+    <title>Sound Generator App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sound-app">
+        <canvas class="sound-canvas" id="canvas" width="400" height="100"></canvas>
+        <div class="sound-controls">
+            <div>
+                <label for="wave">Wave Type</label>
+                <select id="wave">
+                    <option value="sine">Sine</option>
+                    <option value="square">Square</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+            </div>
+            <div>
+                <label for="frequency">Frequency (Hz)</label>
+                <input type="range" id="frequency" min="20" max="2000" value="440">
+            </div>
+            <div>
+                <label for="volume">Volume (%)</label>
+                <input type="range" id="volume" min="0" max="100" value="50">
+            </div>
+        </div>
+        <div class="sound-display" id="display">
+            <h3>Sound Generator</h3>
+            <p>Select wave and play</p>
+        </div>
+        <div class="sound-buttons">
+            <button class="sound-btn special" onclick="soundFunctions.reset()">Reset</button>
+            <button class="sound-btn" onclick="soundFunctions.togglePlay()">Play</button>
+            <button class="sound-btn" onclick="soundFunctions.save()">Save</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/js/sound-gen.js"></script>
+
+
+</body>
+</html>

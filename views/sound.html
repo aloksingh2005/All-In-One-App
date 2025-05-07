@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sound.css">
+    <title>Sound Meter App</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sound-app">
+        <canvas class="sound-canvas" id="canvas" width="300" height="300"></canvas>
+        <div class="sound-controls">
+            <div>
+                <label for="smooth">Smooth Readings</label>
+                <input type="checkbox" id="smooth" checked>
+            </div>
+            <div>
+                <label for="sensitivity">Sensitivity (0.5-2)</label>
+                <input type="range" id="sensitivity" min="0.5" max="2" step="0.1" value="1">
+            </div>
+        </div>
+        <div class="sound-display" id="display">
+            <h3>Sound Meter</h3>
+            <p>Click Start to begin</p>
+        </div>
+        <div class="sound-buttons">
+            <button class="sound-btn special" onclick="soundFunctions.reset()">Reset</button>
+            <button class="sound-btn" onclick="soundFunctions.toggleRecording()">Start</button>
+        </div>
+        <div class="history-section" id="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/sound.js"></script>
+</body>
+</html>
