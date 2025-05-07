@@ -7,6 +7,8 @@ const tools = {
     // --- Basic Tools ---
     calculator: {
         name: "Calculator",
+        icon: "fas fa-calculator",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/calculator.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -21,6 +23,8 @@ const tools = {
 
     unitConverter: {
         name: "Unit Converter",
+        icon: "fas fa-exchange-alt",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/unit-converter.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -35,6 +39,8 @@ const tools = {
     
     daysCounter: {
         name: "Days Counter",
+        icon: "fas fa-calendar-day",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/days-counter.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -49,6 +55,8 @@ const tools = {
     
     stopwatch: {
         name: "Stopwatch",
+        icon: "fas fa-stopwatch",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/stopwatch.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -63,6 +71,8 @@ const tools = {
 
     timer: {
         name: "Timer",
+        icon: "fas fa-hourglass-half",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/timer.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -77,6 +87,8 @@ const tools = {
 
     numberCounter: {
         name: "Num Counter",
+        icon: "fas fa-sort-numeric-up",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/num-counter.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -90,6 +102,8 @@ const tools = {
 
     randomGenerator: {
         name: "Random Generator",
+        icon: "fas fa-dice",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/ran-num-gen.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -103,6 +117,8 @@ const tools = {
 
     billingSystem: {
         name: "Billing",
+        icon: "fas fa-receipt",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/billing.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -116,6 +132,8 @@ const tools = {
 
     reminders: {
         name: "Reminder",
+        icon: "fas fa-bell",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/reminder.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -130,6 +148,8 @@ const tools = {
 
     ruler: {
         name: "Ruler",
+        icon: "fas fa-ruler",
+        category: "utility",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/ruler.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -144,6 +164,8 @@ const tools = {
 
     paint: {
         name: "Paint",
+        icon: "fas fa-paint-brush",
+        category: "media",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/paint.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -157,6 +179,8 @@ const tools = {
 
     musicPlayer: {
         name: "Music Player",
+        icon: "fas fa-music",
+        category: "media",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/music.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -170,6 +194,8 @@ const tools = {
 
     soundGenerator: {
         name: "Sound Generator",
+        icon: "fas fa-volume-up",
+        category: "media",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/sound-gen.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -184,6 +210,8 @@ const tools = {
 
     screenRecorder: {
         name: "Screen Recorder",
+        icon: "fas fa-record-vinyl",
+        category: "media",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/screen-rec.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -198,6 +226,8 @@ const tools = {
 
     mike: {
         name: "Microphone",
+        icon: "fas fa-microphone",
+        category: "media",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/microphone.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -212,10 +242,99 @@ const tools = {
 
     generateQr: {
         name: "QRCode Generator",
+        icon: "fas fa-qrcode",
+        category: "communication",
         init: function (modalContent) {
             modalContent.innerHTML = `
-                <iframe src="views/qr.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
+                <div class="qr-container" style="padding: 20px; text-align: center;">
+                    <h3>QR Code Generator</h3>
+                    <div class="qr-input-container" style="margin: 20px 0;">
+                        <label for="qrInput" style="display: block; margin-bottom: 10px; font-weight: 500;">Enter text or URL:</label>
+                        <input type="text" id="qrInput" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 15px;" placeholder="https://example.com">
+                        
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                            <div style="flex: 1;">
+                                <label for="qrSize" style="display: block; margin-bottom: 5px;">Size:</label>
+                                <select id="qrSize" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                                    <option value="128">Small (128px)</option>
+                                    <option value="200" selected>Medium (200px)</option>
+                                    <option value="300">Large (300px)</option>
+                                </select>
+                            </div>
+                            <div style="flex: 1;">
+                                <label for="qrColor" style="display: block; margin-bottom: 5px;">Color:</label>
+                                <input type="color" id="qrColor" value="#000000" style="width: 100%; padding: 5px; height: 42px; border-radius: 8px; border: 1px solid #ccc;">
+                            </div>
+                        </div>
+                        
+                        <button id="generateQrBtn" style="background-color: var(--primary-color); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 500; width: 100%;">Generate QR Code</button>
+                    </div>
+                    
+                    <div id="qrOutput" style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; min-height: 200px;">
+                        <p style="color: var(--text-secondary);">QR code will appear here</p>
+                    </div>
+                    
+                    <button id="downloadQrBtn" style="background-color: var(--secondary-color); color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 500; margin-top: 15px; display: none;">Download QR Code</button>
+                </div>
             `;
+            
+            const qrInput = modalContent.querySelector('#qrInput');
+            const qrSize = modalContent.querySelector('#qrSize');
+            const qrColor = modalContent.querySelector('#qrColor');
+            const generateBtn = modalContent.querySelector('#generateQrBtn');
+            const downloadBtn = modalContent.querySelector('#downloadQrBtn');
+            const qrOutput = modalContent.querySelector('#qrOutput');
+            
+            let qrcode = null;
+            
+            generateBtn.addEventListener('click', () => {
+                const text = qrInput.value.trim();
+                if (!text) {
+                    qrOutput.innerHTML = `<p style="color: #e53935;">Please enter text or URL first</p>`;
+                    downloadBtn.style.display = 'none';
+                    return;
+                }
+                
+                // Clear previous QR code
+                qrOutput.innerHTML = '';
+                
+                // Create new QR code
+                qrcode = new QRCode(qrOutput, {
+                    text: text,
+                    width: parseInt(qrSize.value),
+                    height: parseInt(qrSize.value),
+                    colorDark: qrColor.value,
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                
+                // Show download button
+                downloadBtn.style.display = 'block';
+            });
+            
+            downloadBtn.addEventListener('click', () => {
+                const img = qrOutput.querySelector('img');
+                if (img) {
+                    // Create a temporary link
+                    const link = document.createElement('a');
+                    link.href = img.src;
+                    link.download = 'qrcode.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            });
+            
+            // Initialize with a placeholder QR code
+            setTimeout(() => {
+                if (qrInput.value.trim() === '') {
+                    qrInput.value = 'https://example.com';
+                    generateBtn.click();
+                    qrInput.value = '';
+                    qrOutput.innerHTML = `<p style="color: var(--text-secondary);">QR code will appear here</p>`;
+                    downloadBtn.style.display = 'none';
+                }
+            }, 500);
         },
         
         cleanup: function() {
@@ -226,6 +345,8 @@ const tools = {
 
     morseCode: {
         name: "Morse Code",
+        icon: "fas fa-comment-dots",
+        category: "communication",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/morse.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -240,6 +361,8 @@ const tools = {
 
     speechToText: {
         name: "Speech To Text",
+        icon: "fas fa-microphone-alt",
+        category: "communication",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/stt.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -254,6 +377,8 @@ const tools = {
 
     compass: {
         name: "Compass",
+        icon: "fas fa-compass",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/compass.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -268,6 +393,8 @@ const tools = {
 
     leveler: {
         name: "Leveler",
+        icon: "fas fa-balance-scale",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/leveler.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -282,6 +409,8 @@ const tools = {
 
     myAddress: {
         name: "My Address",
+        icon: "fas fa-map-marker-alt",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/location.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -296,6 +425,8 @@ const tools = {
 
     speedometer: {
         name: "Speedometer",
+        icon: "fas fa-tachometer-alt",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/speedometer.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -310,6 +441,8 @@ const tools = {
 
     altitude: {
         name: "Altitude",
+        icon: "fas fa-mountain",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/altitude.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -324,6 +457,8 @@ const tools = {
 
     vibrometer: {
         name: "Motion Sensor",
+        icon: "fas fa-mobile-alt",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/motion.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -338,6 +473,8 @@ const tools = {
 
     soundIntensity: {
         name: "Sound Meter",
+        icon: "fas fa-wave-square",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/sound.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -352,6 +489,8 @@ const tools = {
 
     gMeter: {
         name: "G Meter",
+        icon: "fas fa-car",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/g.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -366,6 +505,8 @@ const tools = {
 
     protractor: {
         name: "Protractor",
+        icon: "fas fa-drafting-compass",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/protractor.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -380,6 +521,8 @@ const tools = {
 
     deviceInfo: {
         name: "Device Info",
+        icon: "fas fa-info-circle",
+        category: "sensors",
         init: function (modalContent) {
             modalContent.innerHTML = `
                 <iframe src="views/device-info.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
@@ -392,26 +535,18 @@ const tools = {
     },
 
 
-
-
     textToSpeech: {
         name: "Text to Speech",
+        icon: "fas fa-volume-up",
+        category: "communication",
         init: function (modalContent) {
             modalContent.innerHTML = `
-                 <label for="ttsInput">Text to Speak:</label>
-                 <textarea id="ttsInput" rows="4" placeholder="Enter text..."></textarea>
-                 <button id="ttsSpeakBtn">Speak</button>
-                 <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Uses browser's built-in speech synthesis.</p>
-             `;
-            modalContent.querySelector('#ttsSpeakBtn').onclick = () => {
-                const text = modalContent.querySelector('#ttsInput').value;
-                if ('speechSynthesis' in window && text) {
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    window.speechSynthesis.speak(utterance);
-                } else {
-                    alert('Speech Synthesis not supported or no text entered.');
-                }
-            };
+                <iframe src="views/tts.html" style="width: 100%; height: 460px; border: none; overflow: hidden;"></iframe>
+            `;
+        },
+        
+        cleanup: function() {
+            // Nothing to clean up - cleanup is handled in the iframe
         }
     },
 
@@ -419,6 +554,7 @@ const tools = {
     // Placeholder for removed/impossible tools
     placeholder: {
         name: "Tool Not Available",
+        icon: "fas fa-exclamation-triangle",
         init: function (modalContent, toolName) {
             modalContent.innerHTML = `<p>The tool '<b>${toolName || 'This tool'}</b>' cannot be implemented in a standard web browser due to security restrictions or lack of hardware access (e.g., IR Blaster, specific sensors, file system lock, etc.).</p>`;
         }
@@ -571,19 +707,19 @@ const apps = {
         description: "Convert text to morse code",
         tool: tools.morseCode
     },
-    textToSpeech: {
-        name: "Text to Speech",
-        icon: "fas fa-volume-up",
-        category: "communication",
-        description: "Read text aloud",
-        tool: tools.textToSpeech
-    },
     speechToText: {
         name: "Speech to Text",
         icon: "fas fa-microphone-alt",
         category: "communication",
         description: "Convert speech to text",
         tool: tools.speechToText
+    },
+    textToSpeech: {
+        name: "Text to Speech",
+        icon: "fas fa-volume-up",
+        category: "communication",
+        description: "Read text aloud",
+        tool: tools.textToSpeech
     },
 
     // --- Sensor Tools ---
@@ -638,7 +774,7 @@ const apps = {
     },
     gMeter: {
         name: "G-Meter",
-        icon: "fas fa-car-crash",
+        icon: "fas fa-car",
         category: "sensors",
         description: "Measure acceleration forces",
         tool: tools.gMeter
@@ -668,38 +804,114 @@ const themeToggle = document.querySelector('.theme-toggle');
 
 // Initialize the application
 function initializeApp() {
-    // Render all apps initially
-    renderApps();
+    loadThemePreference();
     
-    // Setup event listeners
+    // Assign categories to tools if not already assigned
+    Object.keys(tools).forEach(key => {
+        // Default category assignment logic based on tool type
+        if (!tools[key].category) {
+            if (key.includes('calculator') || key.includes('Counter') || 
+                key.includes('timer') || key.includes('watch') || 
+                key.includes('Generator') || key.includes('billing') || 
+                key.includes('converter') || key.includes('reminder')) {
+                tools[key].category = 'utility';
+            } else if (key.includes('paint') || key.includes('music') || 
+                       key.includes('recorder') || key.includes('sound') || 
+                       key.includes('mike')) {
+                tools[key].category = 'media';
+            } else if (key.includes('qr') || key.includes('morse') || 
+                       key.includes('stt') || key.includes('tts')) {
+                tools[key].category = 'communication';
+            } else if (key.includes('compass') || key.includes('level') || 
+                       key.includes('location') || key.includes('meter') || 
+                       key.includes('altitude') || key.includes('motion')) {
+                tools[key].category = 'sensors';
+            } else {
+                tools[key].category = 'utility'; // Default category
+            }
+        }
+    });
+    
+    updateAppCountBadges();
+    renderApps('all');
     setupEventListeners();
-    
-    // Initialize time display
     updateTimeDisplay();
-    setInterval(updateTimeDisplay, 60000);
+    setupResponsiveBehavior();
 }
 
-// Render apps in the grid
+// Set up responsive behavior based on screen size
+function setupResponsiveBehavior() {
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    
+    // Auto-collapse sidebar on narrow screens
+    function checkScreenSize() {
+        if (window.innerWidth < 1024 && window.innerWidth > 768) {
+            sidebar.classList.add('collapsed');
+            sidebar.style.width = '70px';
+        } else if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('collapsed');
+            sidebar.style.width = '280px';
+        }
+    }
+    
+    // Initial check
+    checkScreenSize();
+    
+    // Listen for window resize
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Make sidebar toggle visible on larger screens
+    if (window.innerWidth >= 768) {
+        sidebarToggle.style.display = 'block';
+    }
+}
+
+// Render apps based on category filter
 function renderApps(category = 'all') {
+    const appGrid = document.getElementById('appGrid');
     appGrid.innerHTML = '';
     
-    Object.entries(apps).forEach(([appKey, app]) => {
-        if (category === 'all' || app.category === category) {
+    // Update section title
+    const sectionTitle = document.querySelector('.section-title');
+    if (category === 'all') {
+        sectionTitle.textContent = 'All Applications';
+    } else {
+        // Get category name from the nav button text
+        const categoryBtn = document.querySelector(`.nav-btn[data-category="${category}"]`);
+        if (categoryBtn) {
+            const categoryName = categoryBtn.querySelector('span').textContent;
+            sectionTitle.textContent = categoryName;
+        }
+    }
+    
+    // Filter and render apps
+    Object.keys(tools).forEach(appKey => {
+        const app = tools[appKey];
+        const appCategory = app.category || 'utility';
+        
+        if (category === 'all' || category === appCategory) {
             const appElement = createAppElement(appKey, app);
             appGrid.appendChild(appElement);
         }
     });
 }
 
-// Create an app element
+// Create app element for the grid
 function createAppElement(appKey, app) {
     const appElement = document.createElement('div');
     appElement.className = 'app-item';
-    appElement.dataset.appKey = appKey;
+    appElement.setAttribute('data-app', appKey);
+    
+    // Determine app icon
+    let iconClass = 'fas fa-cube'; // Default icon
+    if (app.icon) {
+        iconClass = app.icon;
+    }
     
     appElement.innerHTML = `
         <div class="app-icon">
-            <i class="${app.icon}"></i>
+            <i class="${iconClass}"></i>
         </div>
         <div class="app-name">${app.name}</div>
     `;
@@ -709,41 +921,143 @@ function createAppElement(appKey, app) {
     return appElement;
 }
 
-// Open an app modal
+// Open app modal
 function openAppModal(appKey) {
-    const app = apps[appKey];
+    const app = tools[appKey];
     if (!app) return;
     
-    const modal = document.createElement('div');
-    modal.className = 'app-modal';
-    modal.dataset.appKey = appKey;
+    const modalContainer = document.getElementById('modalContainer');
     
-    modal.innerHTML = `
-        <div class="modal-header">
-            <div class="modal-title">
-                <div class="modal-title-icon">
-                    <i class="${app.icon}"></i>
+    // Get the icon from the app or use default
+    const iconClass = app.icon || 'fas fa-cube';
+    
+    // Check if mobile view
+    const isMobile = window.innerWidth <= 768;
+    
+    // Create modal HTML
+    const modalHTML = `
+        <div class="app-modal" data-app="${appKey}">
+            ${isMobile ? '<div class="modal-pull-handle"></div>' : ''}
+            <div class="modal-header">
+                <div class="modal-title">
+                    <div class="modal-title-icon">
+                        <i class="${iconClass}"></i>
+                    </div>
+                    ${app.name}
                 </div>
-                <span>${app.name}</span>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <button class="modal-close">&times;</button>
+            <div class="modal-content"></div>
         </div>
-        <div class="modal-content"></div>
     `;
     
-    modalContainer.innerHTML = '';
-    modalContainer.appendChild(modal);
+    modalContainer.innerHTML = modalHTML;
+    
+    // Show the modal
     modalContainer.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
     
-    const modalContent = modal.querySelector('.modal-content');
-    
-    // Initialize the tool in the modal
-    if (app.tool && typeof app.tool.init === 'function') {
-        app.tool.init(modalContent);
+    // Initialize the app in the modal
+    const modalContent = modalContainer.querySelector('.modal-content');
+    if (typeof app.init === 'function') {
+        app.init(modalContent);
     }
     
-    // Setup close button
-    modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    // Add touch swipe to close on mobile
+    if (isMobile) {
+        setupModalSwipeToClose();
+    }
+}
+
+// Set up swipe to close for mobile modals
+function setupModalSwipeToClose() {
+    const modal = document.querySelector('.app-modal');
+    const pullHandle = document.querySelector('.modal-pull-handle');
+    let startY = 0;
+    let currentY = 0;
+    
+    // Only set up swipe events if elements exist
+    if (!modal || !pullHandle) return;
+    
+    // Animation for pull handle
+    function updatePullHandleAnimation(deltaY) {
+        if (deltaY > 0) {
+            const progress = Math.min(deltaY / 100, 1);
+            modal.classList.add('dragging');
+            pullHandle.style.transform = `scaleX(${1 - (progress * 0.3)})`;
+            pullHandle.style.opacity = 1 - (progress * 0.5);
+        }
+    }
+    
+    function resetPullHandle() {
+        modal.classList.remove('dragging');
+        pullHandle.style.transform = '';
+        pullHandle.style.opacity = '';
+    }
+    
+    // Touch start handler
+    const handleTouchStart = (e) => {
+        startY = e.touches[0].clientY;
+        currentY = startY;
+        
+        // Add transitions during swipe
+        modal.style.transition = 'transform 0.05s ease-out';
+        document.addEventListener('touchmove', handleTouchMove);
+        document.addEventListener('touchend', handleTouchEnd);
+    };
+    
+    // Touch move handler
+    const handleTouchMove = (e) => {
+        currentY = e.touches[0].clientY;
+        const deltaY = currentY - startY;
+        
+        // Only allow pulling down, not up
+        if (deltaY > 0) {
+            modal.style.transform = `translateY(${deltaY}px)`;
+            updatePullHandleAnimation(deltaY);
+        }
+    };
+    
+    // Touch end handler
+    const handleTouchEnd = () => {
+        const deltaY = currentY - startY;
+        
+        // Remove event listeners
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+        
+        // If pulled down far enough, close modal
+        if (deltaY > 100) {
+            closeModal();
+        } else {
+            // Otherwise, snap back with animation
+            modal.style.transition = 'transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
+            modal.style.transform = 'translateY(0)';
+            resetPullHandle();
+            
+            setTimeout(() => {
+                modal.style.transition = '';
+            }, 300);
+        }
+    };
+    
+    // Add event listener to pull handle
+    pullHandle.addEventListener('touchstart', handleTouchStart);
+    
+    // Make pull handle pulsate slightly to indicate it's draggable
+    setTimeout(() => {
+        pullHandle.style.transition = 'transform 1s ease-in-out';
+        pullHandle.style.transform = 'scaleX(0.8)';
+        
+        setTimeout(() => {
+            pullHandle.style.transform = 'scaleX(1)';
+            setTimeout(() => {
+                pullHandle.style.transition = '';
+            }, 1000);
+        }, 1000);
+    }, 500);
 }
 
 // Close the active modal
@@ -751,33 +1065,57 @@ function closeModal() {
     const activeModal = modalContainer.querySelector('.app-modal');
     if (!activeModal) return;
     
-    const appKey = activeModal.dataset.appKey;
-    const app = apps[appKey];
+    const appKey = activeModal.dataset.app;
+    const app = tools[appKey];
     
     // Run cleanup if available
-    if (app.tool && typeof app.tool.cleanup === 'function') {
-        app.tool.cleanup();
+    if (app && typeof app.cleanup === 'function') {
+        app.cleanup();
     }
     
     modalContainer.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
-// Filter apps by search term
+// Filter apps based on search term
 function filterApps(searchTerm) {
-    const normalizedTerm = searchTerm.toLowerCase().trim();
+    const normalizedTerm = searchTerm.trim().toLowerCase();
+    const appGrid = document.getElementById('appGrid');
+    let anyVisible = false;
     
     document.querySelectorAll('.app-item').forEach(appItem => {
-        const appKey = appItem.dataset.appKey;
-        const app = apps[appKey];
+        const appKey = appItem.dataset.app;
+        const app = tools[appKey];
         
         if (!normalizedTerm || 
             app.name.toLowerCase().includes(normalizedTerm) || 
-            (app.description && app.description.toLowerCase().includes(normalizedTerm))) {
-            appItem.style.display = 'flex';
+            appKey.toLowerCase().includes(normalizedTerm)) {
+            appItem.style.display = '';
+            anyVisible = true;
         } else {
             appItem.style.display = 'none';
         }
     });
+    
+    // Show "no results" message if needed
+    if (!anyVisible && appGrid.children.length > 0) {
+        if (!document.querySelector('.no-results')) {
+            const noResults = document.createElement('div');
+            noResults.className = 'no-results';
+            noResults.innerHTML = `
+                <div class="no-results-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <p>No apps found matching "${searchTerm}"</p>
+            `;
+            appGrid.appendChild(noResults);
+        }
+    } else {
+        const noResults = document.querySelector('.no-results');
+        if (noResults) {
+            noResults.remove();
+        }
+    }
 }
 
 // Update the time display
@@ -789,80 +1127,166 @@ function updateTimeDisplay() {
 
 // Toggle dark/light theme
 function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
+    const body = document.body;
+    body.classList.toggle('dark-theme');
     
-    const isDarkTheme = document.body.classList.contains('dark-theme');
-    themeToggle.innerHTML = isDarkTheme 
-        ? '<i class="fas fa-sun"></i>' 
-        : '<i class="fas fa-moon"></i>';
+    // Update icon for both theme toggle buttons
+    const moonIcon = 'fa-moon';
+    const sunIcon = 'fa-sun';
     
-    // Save preference to localStorage
-    localStorage.setItem('darkTheme', isDarkTheme);
+    const themeToggles = document.querySelectorAll('.theme-toggle, .theme-toggle-sidebar');
+    themeToggles.forEach(toggle => {
+        const icon = toggle.querySelector('i');
+        if (body.classList.contains('dark-theme')) {
+            icon.classList.replace(moonIcon, sunIcon);
+        } else {
+            icon.classList.replace(sunIcon, moonIcon);
+        }
+    });
+    
+    // Save theme preference
+    const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+}
+
+// Toggle sidebar
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('collapsed');
+    
+    if (sidebar.classList.contains('collapsed')) {
+        sidebar.style.width = '70px';
+    } else {
+        sidebar.style.width = '280px';
+    }
+}
+
+// Update the app count badges in sidebar
+function updateAppCountBadges() {
+    // Count apps per category
+    const counts = {
+        all: Object.keys(tools).length,
+        utility: 0,
+        media: 0,
+        communication: 0,
+        sensors: 0
+    };
+    
+    // Count apps in each category
+    Object.values(tools).forEach(app => {
+        const category = app.category || 'utility';
+        if (counts[category] !== undefined) {
+            counts[category]++;
+        }
+    });
+    
+    // Update the badges
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        const category = btn.dataset.category;
+        const countElement = btn.querySelector(category === 'all' ? '.nav-badge' : '.nav-count');
+        if (countElement && counts[category] !== undefined) {
+            countElement.textContent = counts[category];
+        }
+    });
 }
 
 // Setup all event listeners
 function setupEventListeners() {
-    // Category filter buttons
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            const category = button.dataset.category;
+    // Nav button click events
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
             renderApps(category);
-            
-            // Update section title
-            const sectionTitle = document.querySelector('.section-title');
-            if (category === 'all') {
-                sectionTitle.textContent = 'All Applications';
-            } else {
-                sectionTitle.textContent = appCategories[category].name;
-            }
         });
     });
     
-    // Search functionality
-    appSearch.addEventListener('input', () => {
-        filterApps(appSearch.value);
+    // Mobile nav button click events
+    document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Also update regular sidebar nav if visible
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                if (b.dataset.category === category) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+            
+            renderApps(category);
+        });
     });
     
-    // Keyboard shortcut for search
-    document.addEventListener('keydown', (e) => {
-        if (e.key === '/' && document.activeElement !== appSearch) {
+    // Search input functionality
+    const searchInput = document.getElementById('appSearch');
+    searchInput.addEventListener('input', function() {
+        filterApps(this.value.trim().toLowerCase());
+    });
+    
+    // Keyboard shortcut for search (press /)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === '/' && document.activeElement !== searchInput) {
             e.preventDefault();
-            appSearch.focus();
+            searchInput.focus();
         }
     });
     
-    // Theme toggle
-    themeToggle.addEventListener('click', toggleTheme);
+    // Theme toggle functionality
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    themeToggleBtn.addEventListener('click', toggleTheme);
+    
+    // Sidebar theme toggle functionality
+    const themeToggleSidebarBtn = document.querySelector('.theme-toggle-sidebar');
+    if (themeToggleSidebarBtn) {
+        themeToggleSidebarBtn.addEventListener('click', toggleTheme);
+    }
+    
+    // Sidebar toggle functionality
+    const sidebarToggleBtn = document.querySelector('.sidebar-toggle');
+    if (sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', toggleSidebar);
+    }
     
     // ESC key to close modal
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.style.display === 'flex') {
+        if (e.key === 'Escape' && document.getElementById('modalContainer').style.display === 'flex') {
             closeModal();
         }
     });
     
     // Click outside modal to close
-    modalContainer.addEventListener('click', (e) => {
-        if (e.target === modalContainer) {
+    document.getElementById('modalContainer').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('modalContainer')) {
             closeModal();
         }
     });
+    
+    // Update time display
+    updateTimeDisplay();
+    setInterval(updateTimeDisplay, 60000); // Update time every minute
 }
 
 // Load saved theme preference
 function loadThemePreference() {
-    const darkTheme = localStorage.getItem('darkTheme') === 'true';
-    if (darkTheme) {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        
+        // Update icon for both theme toggle buttons
+        const themeToggles = document.querySelectorAll('.theme-toggle, .theme-toggle-sidebar');
+        themeToggles.forEach(toggle => {
+            const icon = toggle.querySelector('i');
+            if (icon) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
     }
 }
 
-// Initialize app on load
-document.addEventListener('DOMContentLoaded', () => {
-    loadThemePreference();
-    initializeApp();
-});
+// When the DOM is fully loaded, initialize the app
+document.addEventListener('DOMContentLoaded', initializeApp);

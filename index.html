@@ -8,37 +8,82 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="workspace">
         <div class="sidebar">
             <div class="sidebar-top">
-                <div class="logo">W</div>
-                <div class="user-profile">
-                    <img src="assets\icons\xiao-yan.jpg" alt="User">
+                <div class="brand">
+                    <div class="logo">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h1 class="brand-name">Workspace</h1>
+                </div>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="assets/icons/xiao-yan.jpg" alt="User">
+                </div>
+                <div class="user-info">
+                    <h3 class="user-name">User Name</h3>
+                    <p class="user-role">Premium</p>
                 </div>
             </div>
-            <div class="workspace-nav">
+            
+            <div class="sidebar-divider">
+                <span>CATEGORIES</span>
+            </div>
+            
+            <nav class="workspace-nav">
                 <button class="nav-btn active" data-category="all">
                     <i class="fas fa-th"></i>
                     <span>All Apps</span>
+                    <span class="nav-badge">28</span>
                 </button>
                 <button class="nav-btn" data-category="utility">
                     <i class="fas fa-calculator"></i>
                     <span>Utilities</span>
+                    <span class="nav-count">9</span>
                 </button>
                 <button class="nav-btn" data-category="media">
                     <i class="fas fa-photo-video"></i>
                     <span>Media</span>
+                    <span class="nav-count">5</span>
                 </button>
                 <button class="nav-btn" data-category="communication">
                     <i class="fas fa-comments"></i>
                     <span>Communication</span>
+                    <span class="nav-count">3</span>
                 </button>
                 <button class="nav-btn" data-category="sensors">
                     <i class="fas fa-compass"></i>
                     <span>Sensors</span>
+                    <span class="nav-count">11</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-divider">
+                <span>QUICK ACTIONS</span>
+            </div>
+            
+            <div class="quick-actions">
+                <button class="quick-action-btn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                <button class="quick-action-btn theme-toggle-sidebar">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+                <button class="quick-action-btn">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help</span>
                 </button>
             </div>
         </div>
@@ -61,6 +106,32 @@
                     <!-- Apps will be dynamically inserted here -->
                 </div>
             </main>
+        </div>
+    </div>
+    
+    <!-- Mobile bottom navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-inner">
+            <button class="mobile-nav-btn active" data-category="all">
+                <i class="fas fa-th"></i>
+                <span>All</span>
+            </button>
+            <button class="mobile-nav-btn" data-category="utility">
+                <i class="fas fa-calculator"></i>
+                <span>Utilities</span>
+            </button>
+            <button class="mobile-nav-btn" data-category="media">
+                <i class="fas fa-photo-video"></i>
+                <span>Media</span>
+            </button>
+            <button class="mobile-nav-btn" data-category="communication">
+                <i class="fas fa-comments"></i>
+                <span>Comm</span>
+            </button>
+            <button class="mobile-nav-btn" data-category="sensors">
+                <i class="fas fa-compass"></i>
+                <span>Sensors</span>
+            </button>
         </div>
     </div>
     
